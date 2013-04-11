@@ -72,7 +72,14 @@ var server = http.createServer(function (req, res) {
 
   //TODO: check req accept header
 
-  req.on('data', function(chunk) {data += chunk;});
+  req.on('data', function(chunk) {
+    data += chunk;
+    if (data.length > 1e6) {
+      // body too large
+      res.writeHead(413);
+      req.connection.destroy();
+    }
+  });
   req.on('end', function(){
     var body = data != '' ? JSON.parse(data) : undefined;
     getToken(body['code'], res);
@@ -84,4 +91,4 @@ exports.start = function(port) {
   console.log('running on port ' + port);
 }
 
-exports.start(8000);
+exports.start(80);
