@@ -1,4 +1,4 @@
-# GitHub oAuth Proxy
+# GitHub OAuth Proxy
 
 proxy github oauth token requests to preserve client_secret for client-side apps, such as browser extensions and static pages.
 
