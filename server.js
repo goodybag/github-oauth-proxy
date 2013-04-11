@@ -98,13 +98,14 @@ var server = http.createServer(function (req, res) {
 
     req.on('end', function(){
       var body = {};
-        if (data != '')
-          body = lcHeaders['content-type'] === 'application/json' ? JSON.parse(data) : qs.parse(body);
+      if (data != '')
+        body = lcHeaders['content-type'] === 'application/json' ? JSON.parse(data) : qs.parse(body);
 
       if (body['username'] != null && body['password'] != null) {
         username = body['username'];
         password = body['password'];
       }
+
       getToken(username, password, res);
     });
   } else
