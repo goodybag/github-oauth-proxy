@@ -1,6 +1,9 @@
 # GitHub OAuth Proxy
 
-proxy github oauth token requests to preserve client_secret for client-side apps, such as browser extensions and static pages.
+To authenticate a user with the GitHub api and receive an oauth token, you must include your GitHub application client id and client secret in the request.
+For purely client-side apps that rely on statically delivered javascript, this presents a security issue: the client secret can be discovered by browser developer tools or foreign javascript.
+This project is a simple server that takes github credentials and returns a github auth token.
+The client never seesgithub application client secret, and the server does not deliver a token for an account unless the requester has the github credentials.
 
 ## Configuration
 

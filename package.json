@@ -6,9 +6,12 @@
   "scripts":{
     "start": "node ./server.js"
   },
+  "dependencies":{
+    "basic-auth-parser": "0.0.x"
+  },
   "repository":{
     "type":"git",
-    "url":"git@github.com:goodybag/trello-to-github.git"
+    "url":"git@github.com:goodybag/github-oauth-proxy.git"
   },
   "keywords": [
     "server",
